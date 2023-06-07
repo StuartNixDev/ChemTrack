@@ -1,0 +1,37 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+#main_menu {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    
+}
+
+#menu_item {
+    border-radius: 15px;
+    
+}
+#menu_item:hover {
+    background-color: lightblue;
+}
+
+div a {
+    color: inherit;
+} 
