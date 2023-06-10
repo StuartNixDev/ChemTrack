@@ -6,3 +6,132 @@
 
 }
 <h1>@ViewData["Title"]</h1>
+</br>
+
+<div class="Container">
+    <div class="row">
+        <div class="col-md-12">
+    <table class="table table-sm table-hover table-bordered table-light">
+    <thead>
+        <tr>
+            <th scope="col">Tank ID</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">Dimensions</th>
+            <th scope="col">Tare Weight</th>
+            <th scope="col">Max Gross Weight</th>
+            <th scope="col">On Hire</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tank in Model.SCTTanks)
+        {
+           string onHire = OnhireCheck.Check(tank);
+
+            <tr class="table-light">
+                <th scope="row">@tank.TankID</th>
+                <td>@tank.Capacity</td>
+                <td>@tank.Dimensions</td>
+                <td>@tank.TareWeight</td>
+                 <td>@tank.MaxGrossWeight</td>
+                <td>@onHire</td>
+                </tr>
+        }
+    </tbody>
+    </table>
+    </div>
+    <div class="col-md-12">
+                <table class="table table-sm table-hover table-bordered table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Tank ID</th>
+                        <th scope="col">Capacity</th>
+                        <th scope="col">Dimensions</th>
+                        <th scope="col">Tare Weight</th>
+                        <th scope="col">Max Gross Weight</th>
+                        <th scope="col">On Hire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tank in Model.NQTanks)
+                    {
+                        string onHire = OnhireCheck.Check(tank);
+
+                        <tr class="table-light">
+                            <th scope="row">@tank.TankID</th>
+                            <td>@tank.Capacity</td>
+                            <td>@tank.Dimensions</td>
+                            <td>@tank.TareWeight</td>
+                            <td>@tank.MaxGrossWeight</td>
+                            <td>@onHire</td>
+                        </tr>
+                    }
+                </tbody>
+                </table>
+    </div>
+        <div class="col-md-12">
+            <table class="table table-sm table-hover table-bordered table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Tank ID</th>
+                        <th scope="col">Capacity</th>
+                        <th scope="col">Dimensions</th>
+                        <th scope="col">Tare Weight</th>
+                        <th scope="col">Max Gross Weight</th>
+                        <th scope="col">On Hire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tank in Model.STTanks)
+                    {
+                        string onHire = OnhireCheck.Check(tank);
+
+                        <tr class="table-light">
+                            <th scope="row">@tank.TankID</th>
+                            <td>@tank.Capacity</td>
+                            <td>@tank.Dimensions</td>
+                            <td>@tank.TareWeight</td>
+                            <td>@tank.MaxGrossWeight</td>
+                            <td>@onHire</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+
+        <div class="col-md-12">
+            <table class="table table-sm table-hover table-bordered table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Tank ID</th>
+                        <th scope="col">Capacity</th>
+                        <th scope="col">Dimensions</th>
+                        <th scope="col">Tare Weight</th>
+                        <th scope="col">Max Gross Weight</th>
+                        <th scope="col">On Hire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tank in Model.STMTanks)
+                    {
+                        string onHire = OnhireCheck.Check(tank);
+
+                        <tr class="table-light">
+                            <th scope="row">@tank.TankID</th>
+                            <td>@tank.Capacity</td>
+                            <td>@tank.Dimensions</td>
+                            <td>@tank.TareWeight</td>
+                            <td>@tank.MaxGrossWeight</td>
+                            <td>@onHire</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+     
+
+ <br/>
+ <br/>

@@ -1,0 +1,41 @@
+﻿@page
+@model ChemTrack.Pages.ProductManagementModel
+@{
+
+    ViewData["Title"] = "Product Management";
+
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="Container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-sm table-hover table-bordered table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Product ID</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">S.G</th>
+                        <th scope="col">UN Number</th>
+                        <th scope="col">Classification</th>
+                        <th scope="col">Hazardous To The Environment</th>
+                        <th scope="col">Price Per Litre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var chem in Model.Chemicals)
+                    {
+                       
+                        <tr class="table-light">
+                            <th scope="row">@chem.ProductID</th>
+                            <td>@chem.ProductName</td>
+                            <td>@chem.SG</td>
+                            <td>@chem.UN_Number</td>
+                            <td>@chem.Classification</td>
+                            <td>@chem.HazardousToEnvironment</td>
+                            <td>@chem.Price</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
