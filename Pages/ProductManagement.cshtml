@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model ChemTrack.Pages.ProductManagementModel
 @{
 
@@ -6,10 +6,11 @@
 
 }
 <h1>@ViewData["Title"]</h1>
+<br/>
 
 <div class="Container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <table class="table table-sm table-hover table-bordered table-light">
                 <thead>
                     <tr>
@@ -20,6 +21,7 @@
                         <th scope="col">Classification</th>
                         <th scope="col">Hazardous To The Environment</th>
                         <th scope="col">Price Per Litre</th>
+                        <th scope="col">Edit Product</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,9 +35,12 @@
                             <td>@chem.UN_Number</td>
                             <td>@chem.Classification</td>
                             <td>@chem.HazardousToEnvironment</td>
-                            <td>@chem.Price</td>
+                            <td>£@chem.Price</td>
+                            <td><a href="/Forms/EditProduct/@chem.ProductID" class="btn btn-warning">Edit</a></td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
+    </div>
+</div>

@@ -27,5 +27,17 @@ namespace ChemTrack
                 return (List<Product>)result;
             }
         }
+
+        public List<Product> FetchProduct(int productID)
+        {
+            using IDbConnection connection = new SqlConnection(ConnAssist.ConnVal("ChemTrackDB"));
+            {
+                var parameter = new { target = productID };
+                var sql = "SELECT * from Products where ProductID = @target";
+                var result = connection.Query<Product>(sql, parameter);
+                return (List<Product>)result;
+            }
+        }
+
     }
 }
