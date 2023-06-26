@@ -7,7 +7,7 @@
         public double SG { get; set; }
         public string UN_Number { get; set; }
         public string Classification { get; set; }
-        public string HazardousToEnvironment { get; set; }
+        public string MarinePollutant { get; set; }
         public double Price { get; set; }
 
 

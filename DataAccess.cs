@@ -39,5 +39,29 @@ namespace ChemTrack
             }
         }
 
+        public void UpdateProduct( int ProductID, string ProductName, double SG, string UN_Number, string Classification, string MarinePollutant, double Price)
+
+        {
+            using IDbConnection connection = new SqlConnection(ConnAssist.ConnVal("ChemTrackDB"));
+            {
+                var parameters = new {ID = ProductID, name = ProductName, sg = SG, un = UN_Number, Class = Classification, MP = MarinePollutant, price = Price };
+                var sql = "UPDATE Products SET ProductName = @name, SG = @sg, UN_Number = @un, Classification = @Class, MarinePollutant = @MP, Price = @price where ProductID = @ID";
+                _ = connection.Query<Product>(sql, parameters);
+
+            }
+        }
+
+        public void DeleteProduct(int id)
+
+        {
+            using IDbConnection connection = new SqlConnection(ConnAssist.ConnVal("ChemTrackDB"));
+            {
+                var parameters = new { ID = id };
+                var sql = "DELETE Products WHERE ProductID = @ID";
+                _ = connection.Query<Product>(sql, parameters);
+
+            }
+        }
+
     }
 }
