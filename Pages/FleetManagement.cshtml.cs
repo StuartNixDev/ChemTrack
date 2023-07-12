@@ -9,31 +9,31 @@ namespace ChemTrack.Pages
     {
         public List<Tank> Tanks = new List<Tank>();
 
-        public List<Tank> SCTTanks = new List<Tank>();
-        public List<Tank> STTanks = new List<Tank>();
-        public List<Tank> NQTanks = new List<Tank>();
-        public List<Tank> STMTanks = new List<Tank>();
+        public List<Tank> KLMTanks = new List<Tank>();
+        public List<Tank> MHVTanks = new List<Tank>();
+        public List<Tank> PBTTanks = new List<Tank>();
+        public List<Tank> HLMTanks = new List<Tank>();
 
         public void OnGet()
         {
             Tanks = new DataAccess().GetTanks();
             foreach(Tank T in Tanks)
             {
-                if (T.TankID.Contains("SCT"))
+                if (T.TankID.Contains("KLM"))
                 {
-                    SCTTanks.Add(T);
+                    KLMTanks.Add(T);
                 }
-                else if (T.TankID.Contains("STM"))
+                else if (T.TankID.Contains("MHV"))
                 {
-                    STMTanks.Add(T);
+                    MHVTanks.Add(T);
                 }
-                else if (T.TankID.Contains("NQ"))
+                else if (T.TankID.Contains("PBT"))
                 {
-                    NQTanks.Add(T);
+                    PBTTanks.Add(T);
                 }
-                else if (T.TankID.Contains("ST"))
+                else if (T.TankID.Contains("HLM"))
                 {
-                    STTanks.Add(T);
+                    HLMTanks.Add(T);
                 }
 
             }

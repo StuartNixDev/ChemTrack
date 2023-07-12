@@ -39,7 +39,7 @@ namespace ChemTrack
             }
         }
 
-        public void UpdateProduct( int ProductID, string ProductName, double SG, string UN_Number, string Classification, string MarinePollutant, double Price)
+        public void UpdateProduct( int ProductID, string ProductName, double SG, string? UN_Number, string Classification, string MarinePollutant, double Price)
 
         {
             using IDbConnection connection = new SqlConnection(ConnAssist.ConnVal("ChemTrackDB"));

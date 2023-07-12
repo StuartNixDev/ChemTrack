@@ -2,41 +2,42 @@
 @model ChemTrack.EditProductModel
 
 
-
 @foreach (var item in Model.Prod){
 <h1>Amend details for @item.ProductName</h1>
 <br/>
-
+        
 
            <form method="post">
 
+                   <div asp-validation-summary="All" class="text-danger"></div>
+
                     <div class="form-group row py-sm-2">
-                        <label for="ProductID" class="col-sm-3 col-form-label">Product ID </label>
-                        <div class="col-sm-4">
-                        <input type="text" class="form-control" id="ProductID" aria-describedby="IDHelp" name="ProductID" value=@item.ProductID readonly>
-                        </div>
+                    <label for="ProductID" class="col-sm-3 col-form-label">Product ID </label>
+                      <div class="col-sm-4">
+                      <input type="text" class="form-control" id="ProductID" aria-describedby="IDHelp" name="ProductID" value=@item.ProductID readonly>
+                      </div>
                     </div>
 
                     <div class="form-group row py-sm-2">
                         <label for="ProductName" class="col-sm-3 col-form-label">Product Name</label>
                         <div class="col-sm-4">
-                        <input type="text" class="form-control" id="ProductName" aria-describedby="NameHelp" name="ProductName" value="@item.ProductName" readonly>
-                        <small id="displayName" class="form-text text-muted"></small>
+                        <input asp-for="ProductName" type="text" class="form-control" id="ProductName" aria-describedby="NameHelp" name="ProductName" value="@item.ProductName">
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="form-group row py-sm-2">
                         <label for="SG" class="col-sm-3 col-form-label">Specific Gravity</label>
                         <div class="col-sm-4">
-                        <input type="text" class="form-control" id="SG" aria-describedby="SGHelp" name="SG" value="@item.SG">
-                        <small id="displaySG" class="form-text text-muted"></small>
+                        <input asp-for="SG" type="text" class="form-control" id="SG" aria-describedby="SGHelp" name="SG" value="@item.SG">
+                        <span asp-validation-for="SG" class="text-danger"></span>
                         </div>
                     </div>
 
                     <div class="form-group row py-sm-2">
                         <label for="UN_Number" class="col-sm-3 col-form-label">UN Number</label>
                         <div class="col-sm-4">
-                <input type="text" class="form-control" id="UN_Number" aria-describedby="UNHelp" name="UN_Number" value=@item.UN_Number>
+                        <input asp-for="UN_Number" type="text" class="form-control" id="UN_Number" aria-describedby="UNHelp" name="UN_Number" value=@item.UN_Number>
                         <small id="displayUN" class="form-text text-muted">Leave blank if Non-Haz</small>
                         </div>
                     </div>
@@ -44,7 +45,7 @@
                     <div class="form-group row py-sm-2">
                         <label for="Class" class="col-sm-3 col-form-label">Classification</label>
                         <div class="col-sm-4">
-                <select type="text" class="form-control" id="Classification" aria-describedby="ClassHelp" name="Classification">
+                        <select type="text" class="form-control" id="Classification" aria-describedby="ClassHelp" name="Classification">
                         <option selected>@item.Classification</option>
                         <option>Flammable</option>
                         <option>Corrosive</option>
@@ -58,8 +59,8 @@
                     <div class="form-group row py-sm-2">
                     <label for="Price" class="col-sm-3 col-form-label">Price Per Litre (£)</label>
                     <div class="col-sm-4">
-                    <input type="text" class="form-control" id="Price" aria-describedby="Price" name="Price" value="@item.Price">
-                    <small id="displayPrice" class="form-text text-muted"></small>
+                    <input asp-for="Price" type="text" class="form-control" id="Price" aria-describedby="Price" name="Price" value="@item.Price">
+                    <span asp-validation-for="Price" class="text-danger"></span>
                     </div>
 
         </div>
