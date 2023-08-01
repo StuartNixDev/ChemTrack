@@ -1,0 +1,89 @@
+﻿@page
+@model ChemTrack.Pages.Forms.AddProductModel
+@{
+}
+
+<form method="post">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    
+
+    <div class="form-group row py-sm-2">
+        <label for="ProductName" class="col-sm-3 col-form-label">Product Name</label>
+        <div class="col-sm-4">
+            <input asp-for="ProductName" type="text" class="form-control" id="ProductName" aria-describedby="NameHelp" name="ProductName">
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row py-sm-2">
+        <label for="SG" class="col-sm-3 col-form-label">Specific Gravity</label>
+        <div class="col-sm-4">
+            <input asp-for="SG" type="text" class="form-control" id="SG" aria-describedby="SGHelp" name="SG" value =" ">
+            <span asp-validation-for="SG" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row py-sm-2">
+        <label for="UN_Number" class="col-sm-3 col-form-label">UN Number</label>
+        <div class="col-sm-4">
+            <input asp-for="UN_Number" type="text" class="form-control" id="UN_Number" aria-describedby="UNHelp" name="UN_Number">
+            <small id="displayUN" class="form-text text-muted">Leave blank if Non-Haz</small>
+        </div>
+    </div>
+
+    <div class="form-group row py-sm-2">
+        <label for="Class" class="col-sm-3 col-form-label">Classification</label>
+        <div class="col-sm-4">
+            <select type="text" class="form-control" id="Classification" aria-describedby="ClassHelp" name="Classification">
+               
+                <option>Flammable</option>
+                <option>Corrosive</option>
+                <option>Toxic</option>
+                <option>Miscellaneous</option>
+                <option selected>Non-Haz</option>
+                <small id="displayClass" class="form-text text-muted"></small>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row py-sm-2">
+        <label for="Price" class="col-sm-3 col-form-label">Price Per Litre (£)</label>
+        <div class="col-sm-4">
+            <input asp-for="Price" type="text" class="form-control" id="Price" aria-describedby="Price" name="Price" value =" ">
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+    </div>
+    <div class="form-group row py-sm-2">
+        <label for="Haz" class="col-sm-3 col-form-label">Marine Pollutant</label>
+
+        <div class="col-sm-4">
+            <div class="form-check form-check-inline">
+
+                
+                    <input class="form-check-input" type="radio" id="MarinePollutant" name="MarinePollutant" value="Yes">
+                    <label class="form-check-label" for="inlineRadio1">Yes</label>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="MarinePollutant" name="MarinePollutant" value="No" checked>
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+
+           
+            </div>
+        </div>
+    </div>
+
+
+    <br />
+
+
+    <div class="col-sm-5">
+        <button type="submit" formmethod="post" class="btn btn-success" asp-page-handler="SubmitButton">Submit New Product</button>
+        <button type="submit" formmethod="post" class="btn btn-warning" asp-page-handler="UndoButton">Undo Changes</button>
+        <button type="submit" formmethod="post" class="btn btn-danger" asp-page-handler="CancelButton">Cancel & Return</button>
+    </div>
+    <br />
+
+</form>

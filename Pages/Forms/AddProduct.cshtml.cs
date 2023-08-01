@@ -1,16 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Http;
 using System.ComponentModel.DataAnnotations;
 
-namespace ChemTrack
+namespace ChemTrack.Pages.Forms
 {
     [BindProperties]
-    public class EditProductModel : PageModel
+    public class AddProductModel : PageModel
     {
-        public List<Product> Prod = new List<Product>();
-
-     
-        public int ProductID { get; set; }
+        public List <Product> Product = new List<Product> ();
 
         [Required(ErrorMessage = "Product Name Required")]
         public string? ProductName { get; set; }
@@ -23,42 +21,39 @@ namespace ChemTrack
 
         [Required(ErrorMessage = "Price Required")]
         public double? Price { get; set; }
-       
 
-
-        public IActionResult OnGet(int productID)
+        public IActionResult OnGet()
         {
-            Prod = new DataAccess().FetchProduct(productID);
             return Page();
-
         }
+
+        public IActionResult OnPostUndoButton()
+
+        {
+            return new RedirectToPageResult("/Forms/AddProduct");
+        }
+
+        public IActionResult OnPostCancelButton()
+
+        {
+            return new RedirectToPageResult("/ProductManagement");
+        }
+
         public IActionResult OnPostSubmitButton(DataAccess dataAccess)
 
         {
             if (!ModelState.IsValid)
             {
-                return OnGet(ProductID);
-
+                return OnGet();
+                
             }
-            else {
-                dataAccess.UpdateProduct(ProductID, ProductName, (double)SG, UN_Number, Classification, MarinePollutant, (double)Price);
+            else
+            {
+
+                dataAccess.AddProduct(ProductName, (double)SG, UN_Number, Classification, MarinePollutant, (double)Price);
                 return new RedirectToPageResult("/ProductManagement");
             }
-            
-                
-            
         }
-        public IActionResult OnPostUndoButton()
-
-        {
-            return new RedirectToPageResult("/Forms/EditProduct");
-        }
-
-        public IActionResult OnPostDeleteButton(DataAccess dataAccess)
-
-        {
-            dataAccess.DeleteProduct(ProductID);
-            return new RedirectToPageResult("/ProductManagement");
         }
     }
-}
+

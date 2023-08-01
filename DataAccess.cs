@@ -63,5 +63,19 @@ namespace ChemTrack
             }
         }
 
+        public void AddProduct(string ProductName, double SG, string? UN_Number, string Classification, string MarinePollutant, double Price)
+
+        {
+
+            using IDbConnection connection = new SqlConnection(ConnAssist.ConnVal("ChemTrackDB"));
+            {
+                var parameters = new { name = ProductName, sg = SG, un = UN_Number, Class = Classification, MP = MarinePollutant, price = Price };
+                var sql = "INSERT INTO Products (ProductName, SG, UN_Number, Classification, MarinePollutant, Price) VALUES (@name,@sg,@un,@Class,@MP,@price)";
+                _ = connection.Query<Product>(sql, parameters);
+            }
+
+
+        }
+
     }
 }
