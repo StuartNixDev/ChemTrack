@@ -1,0 +1,92 @@
+﻿@page "{TankID}"
+@model ChemTrack.Pages.Forms.EditTankModel
+@{
+}
+
+
+@foreach (var item in Model.Tank)
+{
+    <h1>Amend details for @item.TankID</h1>
+    <br />
+
+
+    <form method="post">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group row py-sm-2">
+            <label for="ProductID" class="col-sm-3 col-form-label">Tank ID </label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="TankID" aria-describedby="IDHelp" name="TankID" value=@item.TankID>
+            </div>
+        </div>
+
+        <div class="form-group row py-sm-2">
+            <label for="ProductName" class="col-sm-3 col-form-label">Capacity</label>
+            <div class="col-sm-4">
+                <input asp-for="Capacity" type="text" class="form-control" id="Capacity" aria-describedby="CapacityHelp" name="Capacity" value="@item.Capacity">
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row py-sm-2">
+            <label for="SG" class="col-sm-3 col-form-label">Dimensions</label>
+            <div class="col-sm-4">
+                <input asp-for="Dimensions" type="text" class="form-control" id="Dimensions" aria-describedby="DimensionsHelp" name="Dimensions" value="@item.Dimensions">
+                <span asp-validation-for="Dimensions" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row py-sm-2">
+            <label for="UN_Number" class="col-sm-3 col-form-label">Tare Weight</label>
+            <div class="col-sm-4">
+                <input asp-for="TareWeight" type="text" class="form-control" id="TareWeight" aria-describedby="TareWeightHelp" name="TareWeight" value=@item.TareWeight>
+            </div>
+        </div>
+
+        <div class="form-group row py-sm-2">
+            <label for="Class" class="col-sm-3 col-form-label">Max Gross Weight</label>
+            <div class="col-sm-4">
+                <input asp-for="MaxGrossWeight" type="text" class="form-control" id="MaxGrossWeight" aria-describedby="MaxGrossWeightHelp" name="MaxGrossWeight" value=@item.MaxGrossWeight>
+            </div>
+        </div>
+        <div class="form-group row py-sm-2">
+            <label for="OnHire" class="col-sm-3 col-form-label">On Hire</label>
+            <div class="col-sm-4">
+
+                @if (item.OnHire == 0)
+                {
+                    <input asp-for="OnHire" type="text" class="form-control" id="OnHire" aria-describedby="OnHire" name="OnHire" value="No">
+                }
+                else
+                {
+                    <input asp-for="OnHire" type="text" class="form-control" id="OnHire" aria-describedby="OnHire" name="OnHire" value="Yes">
+                }
+                
+                <span asp-validation-for="OnHire" class="text-danger"></span>
+            </div>
+
+        </div>
+        
+
+
+        <br />
+
+
+        <div class="col-sm-4">
+
+            <button type="submit" formmethod="post" class="btn btn-warning" asp-page-handler="UndoButton">Undo Changes</button>
+            <button type="submit" formmethod="post" class="btn btn-success" asp-page-handler="SubmitButton">Submit Changes</button>
+            <button type="submit" formmethod="post" class="btn btn-danger" asp-page-handler="DeleteButton">Delete Record</button>
+        </div>
+        <br />
+
+    </form>
+
+    <a href="/FleetManagement" class="btn btn-primary">Return to Fleet Management</a>
+
+
+
+
+
+}

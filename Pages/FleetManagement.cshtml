@@ -6,20 +6,22 @@
 
 }
 <h1>@ViewData["Title"]</h1>
-</br>
+<br />
 
 <div class="Container">
     <div class="row">
         <div class="col-md-8">
     <table class="table table-sm table-hover table-bordered table-light">
-    <thead>
+
+    <thead class="thead-light">
         <tr>
             <th scope="col">Tank ID</th>
             <th scope="col">Capacity</th>
             <th scope="col">Dimensions</th>
-            <th scope="col">Tare Weight</th>
-            <th scope="col">Max Gross Weight</th>
+            <th scope="col">Tare Weight (KG)</th>
+            <th scope="col">Max Gross Weight (KG)</th>
             <th scope="col">On Hire</th>
+            <th scope="col">Edit Tank</th>
         </tr>
     </thead>
     <tbody>
@@ -32,13 +34,18 @@
                 <td>@tank.Capacity</td>
                 <td>@tank.Dimensions</td>
                 <td>@tank.TareWeight</td>
-                 <td>@tank.MaxGrossWeight</td>
+                <td>@tank.MaxGrossWeight</td>
                 <td>@onHire</td>
+                <td><a href="/Forms/EditTank/@tank.TankID" class="btn btn-warning">Edit</a></td>
                 </tr>
         }
     </tbody>
     </table>
+            <a href="/Forms/AddProduct" class="btn btn-primary">Add A New HLM Tank</a>
+            <br />
+            <br />
     </div>
+    
     <div class="col-md-8">
                 <table class="table table-sm table-hover table-bordered table-light">
                 <thead>
@@ -46,9 +53,10 @@
                         <th scope="col">Tank ID</th>
                         <th scope="col">Capacity</th>
                         <th scope="col">Dimensions</th>
-                        <th scope="col">Tare Weight</th>
-                        <th scope="col">Max Gross Weight</th>
+                        <th scope="col">Tare Weight (KG)</th>
+                        <th scope="col">Max Gross Weight (KG)</th>
                         <th scope="col">On Hire</th>
+                        <th scope="col">Edit Tank</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,10 +71,14 @@
                             <td>@tank.TareWeight</td>
                             <td>@tank.MaxGrossWeight</td>
                             <td>@onHire</td>
+                            <td><a href="/Forms/EditTank/@tank.TankID" class="btn btn-warning">Edit</a></td>
                         </tr>
                     }
                 </tbody>
                 </table>
+            <a href="/Forms/AddProduct" class="btn btn-primary">Add A New KLM Tank</a>
+            <br />
+            <br />
     </div>
         <div class="col-md-8">
             <table class="table table-sm table-hover table-bordered table-light">
@@ -75,9 +87,10 @@
                         <th scope="col">Tank ID</th>
                         <th scope="col">Capacity</th>
                         <th scope="col">Dimensions</th>
-                        <th scope="col">Tare Weight</th>
-                        <th scope="col">Max Gross Weight</th>
+                        <th scope="col">Tare Weight (KG)</th>
+                        <th scope="col">Max Gross Weight (KG)</th>
                         <th scope="col">On Hire</th>
+                        <th scope="col">Edit Tank</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -92,10 +105,14 @@
                             <td>@tank.TareWeight</td>
                             <td>@tank.MaxGrossWeight</td>
                             <td>@onHire</td>
+                            <td><a href="/Forms/EditTank/@tank.TankID" class="btn btn-warning">Edit</a></td>
                         </tr>
                     }
                 </tbody>
             </table>
+            <a href="/Forms/AddProduct" class="btn btn-primary">Add A New MHV Tank</a>
+            <br />
+            <br />
         </div>
         
 
@@ -106,9 +123,10 @@
                         <th scope="col">Tank ID</th>
                         <th scope="col">Capacity</th>
                         <th scope="col">Dimensions</th>
-                        <th scope="col">Tare Weight</th>
-                        <th scope="col">Max Gross Weight</th>
+                        <th scope="col">Tare Weight (KG)</th>
+                        <th scope="col">Max Gross Weight (KG)</th>
                         <th scope="col">On Hire</th>
+                        <th scope="col">Edit Tank</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -123,15 +141,19 @@
                             <td>@tank.TareWeight</td>
                             <td>@tank.MaxGrossWeight</td>
                             <td>@onHire</td>
+                            <td><a href="/Forms/EditTank/@tank.TankID" class="btn btn-warning">Edit</a></td>
                         </tr>
                     }
                 </tbody>
 
             </table>
+            <a href="/Forms/AddProduct" class="btn btn-primary">Add A New PBT Tank</a>
+            <br />
+            <br />
         </div>
     </div>
 </div>
-     
+
 
  <br/>
  <br/>
