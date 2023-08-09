@@ -15,16 +15,16 @@ namespace ChemTrack.Pages.Forms
 
         [Required(ErrorMessage = "Tank ID Required")]
         public string? TankID { get; set; }
-        [Required]   
-        public int Capacity { get; set; }
-        [Required]       
-        public string Dimensions { get; set; }
-        [Required]      
-        public int TareWeight { get; set; }
-        [Required]     
-        public int MaxGrossWeight { get; set; }
-        [Required]      
-        public int OnHire { get; set; }
+        [Required(ErrorMessage = "Capacity Required")]   
+        public int? Capacity { get; set; }
+        [Required(ErrorMessage = "Dimensions Required")]       
+        public string? Dimensions { get; set; }
+        [Required(ErrorMessage = "Tare Weight Required")]      
+        public int? TareWeight { get; set; }
+        [Required(ErrorMessage = "Max Gross Weight Required")]     
+        public int? MaxGrossWeight { get; set; }
+        [Required(ErrorMessage = "On Hire Information Required")]      
+        public int? OnHire { get; set; }
 
      
         public IActionResult OnGet(string TankID)
@@ -45,7 +45,7 @@ namespace ChemTrack.Pages.Forms
             }
             else
             {
-                dataAccess.UpdateTank(TankID, Capacity, Dimensions, TareWeight, MaxGrossWeight, OnHire);
+                dataAccess.UpdateTank(TankID, (int)Capacity, Dimensions, (int)TareWeight, (int)MaxGrossWeight, (int)OnHire);
                 return new RedirectToPageResult("/FleetManagement");
             }
         }
